@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { UserAuthenticationModule } from './modules/user-authentication/user-authentication.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LandingPageModule } from './modules/landing-page/landing-page.module';
+import { AppCommonModule } from './modules/app-common/app-common.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { LandingPageModule } from './modules/landing-page/landing-page.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    AppCommonModule,
     UserAuthenticationModule,
     LandingPageModule
   ],
