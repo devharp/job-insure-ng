@@ -10,13 +10,12 @@ import { AppCommonModule } from './modules/app-common/app-common.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AppCommonModule,
     UserAuthenticationModule,
     LandingPageModule
   ],
