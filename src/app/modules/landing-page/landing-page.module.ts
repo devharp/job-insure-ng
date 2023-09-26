@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LandingPageComponent } from './landing-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AppCommonModule } from '../app-common/app-common.module';
+import { InsuranceCardComponent } from './insurance-card/insurance-card.component';
 
 const landingRoutes: Routes = [
   { path: '', component: LandingPageComponent }
@@ -10,7 +11,8 @@ const landingRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    LandingPageComponent
+    LandingPageComponent,
+    InsuranceCardComponent
   ],
   imports: [
     CommonModule,
