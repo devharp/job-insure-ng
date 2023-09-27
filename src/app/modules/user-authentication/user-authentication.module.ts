@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AppCommonModule } from '../app-common/app-common.module';
 
 const userAuthRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -15,6 +16,7 @@ const userAuthRoutes: Routes = [
   ],
   imports: [
     CommonModule,
+    AppCommonModule,
     RouterModule.forChild(userAuthRoutes)
   ]
 })
