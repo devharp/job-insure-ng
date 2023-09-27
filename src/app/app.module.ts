@@ -7,6 +7,8 @@ import { UserAuthenticationModule } from './modules/user-authentication/user-aut
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LandingPageModule } from './modules/landing-page/landing-page.module';
 import { AppCommonModule } from './modules/app-common/app-common.module';
+import { AdminModule } from './modules/admin/admin.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { AppCommonModule } from './modules/app-common/app-common.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     UserAuthenticationModule,
-    LandingPageModule
+    LandingPageModule,
+    AdminModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
