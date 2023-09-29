@@ -7,6 +7,9 @@ import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
 import { TagModule } from 'primeng/tag';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 const routes: Routes = [
   { path: '', component: AdminComponent }
@@ -21,7 +24,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     FormsModule,
-    TableModule, ButtonModule, RatingModule, TagModule
+    TableModule, ButtonModule, RatingModule, TagModule,
+    MatIconModule, MatSnackBarModule
   ]
 })
 export class AdminModule { }

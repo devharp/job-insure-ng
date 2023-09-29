@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 interface Product {
@@ -20,6 +21,7 @@ interface Product {
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+
   lockedProducts: Product[] = [
     {
       id: '1000',
@@ -36,12 +38,10 @@ export class AdminComponent implements OnInit {
   ];
   products!: Product[];
 
-  constructor() { }
+
+  constructor(private snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    // this.getProductsMini().then((data) => {
-    //   this.products = data;
-    // });
     this.products = this.getProductsData()
   }
 
@@ -1275,5 +1275,24 @@ export class AdminComponent implements OnInit {
 
   getProductsWithOrders() {
     return Promise.resolve(this.getProductsWithOrdersData());
+  }
+
+  public actionsById(userId: string, action: 'edit' | 'delete'): void {
+
+    if (action === 'edit') {}
+    
+    else if (action === 'delete') {
+      this.showDeleteRecordAlert();
+    }
+    
+    
+  }
+
+  private showDeleteRecordAlert(): void {
+    this.snackBar.open('Are you sure', 'Delete', {
+      direction: 'ltr',
+      verticalPosition: 'top',
+      duration: 3000, // Snackbar duration in milliseconds
+    });
   }
 }

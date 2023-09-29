@@ -1,22 +1,24 @@
-<p-table [value]="products" [frozenValue]="lockedProducts" [scrollable]="true" scrollHeight="400px" [tableStyle]="{'min-width': '60rem'}">
+<p-table [value]="products" [frozenValue]="lockedProducts" [scrollable]="true" scrollHeight="400px"
+    [tableStyle]="{'min-width': '60rem'}">
     <ng-template pTemplate="caption">
         <div class="flex align-items-center justify-content-between">
-            Products
+            Agents
             <p-button icon="pi pi-refresh"></p-button>
         </div>
     </ng-template>
     <ng-template pTemplate="header">
         <tr>
-            <th pFrozenColumn>Name</th>
+            <th>Name</th>
             <th>Image</th>
             <th>Price</th>
             <th>Category</th>
             <th>Reviews</th>
             <th>Status</th>
+            <th>Actions</th>
         </tr>
     </ng-template>
-    
-    <ng-template pTemplate="frozenbody" let-product>
+
+    <!-- <ng-template pTemplate="frozenbody" let-product>
         <tr>
             <td pFrozenColumn>{{product.name}}</td>
             <td><img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image" [alt]="product.name" width="100" class="shadow-4" /></td>
@@ -25,18 +27,26 @@
             <td><p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td>
             <td><p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product.inventoryStatus)"></p-tag></td>
         </tr>
-    </ng-template>
+    </ng-template> -->
     <ng-template pTemplate="body" let-product>
         <tr>
-            <td pFrozenColumn>{{product.name}}</td>
-            <td><img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image" [alt]="product.name" width="100" class="shadow-4" /></td>
+            <td>{{product.name}}</td>
+            <td><img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image"
+                    [alt]="product.name" width="100" class="shadow-4" /></td>
             <td>{{product.price | currency:'USD'}}</td>
             <td>{{product.category}}</td>
             <td><p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td>
             <td><p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product.inventoryStatus)"></p-tag></td>
+            <td
+                class="[&>*]:flex [&>*]:gap-[1rem] [&>*>*]:cursor-pointer [&>*>*]:h-[2rem] [&>*>*]:w-[2rem] [&>*>*]:bg-[var(--theme-color)] [&>*>*]:text-[white] [&>*>*]:flex [&>*>*]:items-center [&>*>*]:justify-center [&>*>*]:border-solid [&>*>*]:rounded-[0.25rem]">
+                <div>
+                    <div><mat-icon (click)="actionsById(product.id, 'edit')">edit</mat-icon></div>
+                    <div><mat-icon (click)="actionsById(product.id, 'delete')">delete</mat-icon></div>
+                </div>
+            </td>
         </tr>
     </ng-template>
-    
+
     <ng-template pTemplate="summary">
         <div class="flex align-items-center justify-content-between">
             In total there are {{products ? products.length : 0 }} products.
