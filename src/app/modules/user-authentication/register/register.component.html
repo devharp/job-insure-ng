@@ -1,30 +1,31 @@
-<div class="bg-gray-100 min-h-screen flex items-center justify-center">
-    <div class="bg-white p-8 rounded shadow-md w-full md:w-1/2 lg:w-1/2">
-        <h1 class="text-2xl font-semibold mb-4 text-center">Registration</h1>
+
+<div class="bg-[url('assets\img\update1\hero\hero_overlay_6.png')] bg-cover bg-center min-h-screen flex items-center justify-center">
+    <div class=" p-8 rounded shadow-2xl drop-shadow-md hover:drop-shadow-xl w-full md:w-1/2 lg:w-1/2 ">
+        <h1 class="text-2xl text-center text-white ">Registration</h1>
         <form>
           
             <div class="mb-4">
-                <label for="fullname" class="block text-gray-600">Full Name</label>
+                <label for="fullname" class="block text-white">Full Name</label>
                 <input type="text" id="fullname" name="fullname" class="w-full h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Your full name" required>
             </div>
 
             <div class="mb-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                    <label for="email" class="block text-gray-600">Email Address</label>
+                    <label for="email" class="block text-white">Email Address</label>
                     <input type="email" id="email" name="email" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Your email address" required>
                 </div>
                 <div>
-                    <label for="password" class="block text-gray-600">Password</label>
+                    <label for="password" class="block text-white">Password</label>
                     <input type="password" id="password" name="password" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Your password" required>
                 </div>
             </div>
             <div class="mb-4 flex space-x-4">
                 <div class="w-1/2">
-                    <label for="mobileNo" class="block text-gray-600">Mobile Number</label>
+                    <label for="mobileNo" class="block text-white">Mobile Number</label>
                     <input type="text" id="mobileNo" name="mobileNo" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Your mobile number" required>
                 </div>
                 <div class="w-1/2">
-                    <label for="role" class="block text-gray-600">Role</label>
+                    <label for="role" class="block text-white">Role</label>
                     <select id="role" name="role" class="w-full h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" required>
                         <option value="Applicant">Applicant</option>
                         <option value="InsuranceAgent">Insurance Agent</option>
@@ -33,29 +34,29 @@
             </div>
             <div class="mb-4 flex space-x-4">
                 <div class="w-1/2">
-                    <label for="street" class="block text-gray-600">Street</label>
+                    <label for="street" class="block text-white">Street</label>
                     <input type="text" id="street" name="street" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Street" required>
                 </div>
                 <div class="w-1/2">
-                    <label for="city" class="block text-gray-600">City</label>
+                    <label for="city" class="block text-white">City</label>
                     <input type="text" id="city" name="city" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="City" required>
                 </div>
             </div>
 
             <div class="mb-4 flex space-x-4">
                 <div class="w-1/2">
-                    <label for="state" class="block text-gray-600">State</label>
+                    <label for="state" class="block text-white">State</label>
                     <input type="text" id="state" name="state" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="State" required>
                 </div>
                 <div class="w-1/2">
-                    <label for="postalCode" class="block text-gray-600">Postal Code</label>
+                    <label for="postalCode" class="block text-white">Postal Code</label>
                     <input type="text" id="postalCode" name="postalCode" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Postal Code" required>
                 </div>
             </div>
 
 
             <div class="text-center">
-                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">Register</button>
+                <button type="submit" (click)="onSubmit()" class="bg-blue-500 text-white py-2 px-4 w-full rounded hover:bg-blue-600 transition duration-300">Register</button>
             </div>
         </form>
     </div>
