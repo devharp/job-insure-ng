@@ -4,7 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AppCommonModule } from '../app-common/app-common.module';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'; 
 const userAuthRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -17,7 +18,10 @@ const userAuthRoutes: Routes = [
   imports: [
     CommonModule,
     AppCommonModule,
-    RouterModule.forChild(userAuthRoutes)
+    RouterModule.forChild(userAuthRoutes),
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ]
 })
 export class UserAuthenticationModule { }
