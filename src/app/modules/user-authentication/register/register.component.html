@@ -1,63 +1,96 @@
 
 <div class="bg-[url('assets\img\update1\hero\hero_overlay_6.png')] bg-cover bg-center min-h-screen flex items-center justify-center">
-    <div class=" p-8 rounded shadow-2xl drop-shadow-md hover:drop-shadow-xl w-full md:w-1/2 lg:w-1/2 ">
+    <div class=" p-8 rounded shadow-2xl drop-shadow-md hover:drop-shadow-xl ">
         <h1 class="text-2xl text-center text-white ">Registration</h1>
-        <form>
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
           
             <div class="mb-4">
                 <label for="fullname" class="block text-white">Full Name</label>
-                <input type="text" id="fullname" name="fullname" class="w-full h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Your full name" required>
+                <input type="text" id="fullname" name="fullname" class="w-full h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Your full name" required formControlName="fullname">
             </div>
 
             <div class="mb-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                     <label for="email" class="block text-white">Email Address</label>
-                    <input type="email" id="email" name="email" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Your email address" required>
+                    <input type="email" id="email" name="email" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Your email address" required formControlName="email">
                 </div>
                 <div>
                     <label for="password" class="block text-white">Password</label>
-                    <input type="password" id="password" name="password" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Your password" required>
+                    <input type="password" id="password" name="password" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Your password" required formControlName="password">
                 </div>
             </div>
             <div class="mb-4 flex space-x-4">
                 <div class="w-1/2">
                     <label for="mobileNo" class="block text-white">Mobile Number</label>
-                    <input type="text" id="mobileNo" name="mobileNo" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Your mobile number" required>
+                    <input type="text" id="mobileNo" name="mobileNo" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Your mobile number" required formControlName="mobileNo">
                 </div>
                 <div class="w-1/2">
                     <label for="role" class="block text-white">Role</label>
-                    <select id="role" name="role" class="w-full h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" required>
+                    <select id="role" name="role"  class="w-full h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" required formControlName="role" (change)="toggleConditionalFields()">
                         <option value="Applicant">Applicant</option>
                         <option value="InsuranceAgent">Insurance Agent</option>
-                    </select>
+                      </select>
                 </div>
             </div>
+            <div class="mb-4">
+                <div *ngIf="registrationForm.get('role')?.value === 'InsuranceAgent'" class="flex space-x-4">
+                  <div class="w-1/2">
+                    <label for="licenseNumber" class="block text-white">License Number</label>
+                    <input type="text" id="licenseNumber" name="licenseNumber"
+                      class="w-full h-[2.5em] p-2 border rounded mb-2 focus:outline-none focus:ring focus:border-blue-400"
+                      placeholder="License Number" formControlName="licenseNumber">
+                  </div>
+                  <div class="w-1/2">
+                    <label for="specializations" class="block text-white">Specializations</label>
+                    <input type="text" id="specializations" name="specializations"
+                      class="w-full h-[2.5em] p-2 border rounded mb-2 focus:outline-none focus:ring focus:border-blue-400"
+                      placeholder="specializations" formControlName="specializations">
+                  </div>
+                </div>
+              </div>
+            <div class="mb-4">
+                <div *ngIf="registrationForm.get('role')?.value === 'Applicant'" class="flex space-x-4">
+                  <div class="w-1/2">
+                    <label for="currentCompany" class="block text-white">Current Company</label>
+                    <input type="text" id="currentCompany" name="currentCompany"
+                      class="w-full h-[2.5em] p-2 border rounded mb-2 focus:outline-none focus:ring focus:border-blue-400"
+                      placeholder="Current Company" formControlName="currentCompany">
+                  </div>
+                  <div class="w-1/2">
+                    <label for="currentLocation" class="block text-white">Current Location</label>
+                    <input type="text" id="currentLocation" name="currentLocation"
+                      class="w-full h-[2.5em] p-2 border rounded mb-2 focus:outline-none focus:ring focus:border-blue-400"
+                      placeholder="Current Location" formControlName="currentLocation">
+                  </div>
+                </div>
+              </div>
             <div class="mb-4 flex space-x-4">
                 <div class="w-1/2">
                     <label for="street" class="block text-white">Street</label>
-                    <input type="text" id="street" name="street" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Street" required>
+                    <input type="text" id="street" name="street" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Street" required formControlName="street">
                 </div>
                 <div class="w-1/2">
                     <label for="city" class="block text-white">City</label>
-                    <input type="text" id="city" name="city" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="City" required>
+                    <input type="text" id="city" name="city" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="City" required formControlName="city">
                 </div>
             </div>
 
             <div class="mb-4 flex space-x-4">
                 <div class="w-1/2">
                     <label for="state" class="block text-white">State</label>
-                    <input type="text" id="state" name="state" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="State" required>
+                    <input type="text" id="state" name="state" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="State" required formControlName="state">
                 </div>
                 <div class="w-1/2">
                     <label for="postalCode" class="block text-white">Postal Code</label>
-                    <input type="text" id="postalCode" name="postalCode" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Postal Code" required>
+                    <input type="text" id="postalCode" name="postalCode" class="w-full  h-[2.5em] p-2 border rounded focus:outline-none focus:ring focus:border-blue-400" placeholder="Postal Code" required formControlName="postalCode">
                 </div>
             </div>
 
 
             <div class="text-center">
-                <button type="submit" (click)="onSubmit()" class="bg-blue-500 text-white py-2 px-4 w-full rounded hover:bg-blue-600 transition duration-300">Register</button>
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 w-full rounded hover:bg-blue-600 transition duration-300">Register</button>
             </div>
+            <div class="show mt-[1em] text-white">Already have an account then <a  class="underline underline-offset-4 text-white" routerLink="/login">Login</a></div>
         </form>
     </div>
 </div>
